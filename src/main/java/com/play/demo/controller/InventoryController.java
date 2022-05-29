@@ -12,8 +12,12 @@ import com.play.demo.service.InventoryService;
 @RestController
 public class InventoryController {
 
+	private final InventoryService invService;
+
 	@Autowired
-	private InventoryService invService;
+	public InventoryController(InventoryService invService) {
+		this.invService = invService;
+	}
 
 	@GetMapping("loadInventory")
 	public List<Inventory> loadInventory() {
