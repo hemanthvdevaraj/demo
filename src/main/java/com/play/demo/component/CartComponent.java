@@ -1,10 +1,10 @@
 package com.play.demo.component;
 
-import com.play.demo.entity.Cart;
+import com.play.demo.dto.CartDTO;
 
 public interface CartComponent {
 
-	public Cart addToCart(long userId, long productId);
+	public CartDTO addToCart(long userId, long productId);
 
-	public Cart loadCart(long userId);
+	public CartDTO loadCart(long userId);
 }

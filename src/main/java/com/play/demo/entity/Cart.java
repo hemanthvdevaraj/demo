@@ -1,10 +1,13 @@
 package com.play.demo.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -16,9 +19,8 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@OneToOne
-	@JoinColumn(name = "product_id")
-	private Product product;
+	@OneToMany(mappedBy = "cart")
+	private List<Product> products;
 
 	@OneToOne
 	@JoinColumn(name = "user_id")
@@ -32,12 +34,12 @@ public class Cart {
 		this.id = id;
 	}
 
-	public Product getProduct() {
-		return product;
+	public List<Product> getProducts() {
+		return products;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	public UserInfo getUserInfo() {

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.play.demo.component.CartComponent;
-import com.play.demo.entity.Cart;
+import com.play.demo.dto.CartDTO;
 
 @Service
 public class CartService {
@@ -12,17 +12,17 @@ public class CartService {
 	@Autowired
 	private CartComponent cartComp;
 
-	public Cart loadCart(long userId) {
+	public CartDTO loadCart(long userId) {
 
-		Cart cart = cartComp.loadCart(userId);
+		CartDTO cartDto = cartComp.loadCart(userId);
 
-		return cart;
+		return cartDto;
 	}
 
-	public Cart addToCart(long userId, long productId) {
+	public CartDTO addToCart(long userId, long productId) {
 
-		Cart cart = cartComp.addToCart(userId, productId);
+		CartDTO cartDto = cartComp.addToCart(userId, productId);
 
-		return cart;
+		return cartDto;
 	}
 }

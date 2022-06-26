@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.play.demo.entity.Cart;
+import com.play.demo.dto.CartDTO;
 import com.play.demo.service.CartService;
 
 @RestController
@@ -15,18 +15,18 @@ public class CartController {
 	private CartService cartService;
 
 	@GetMapping("loadCart")
-	public Cart loadCart(@RequestParam long userId) {
+	public CartDTO loadCart(@RequestParam long userId) {
 
-		Cart cart = cartService.loadCart(userId);
+		CartDTO cartDto = cartService.loadCart(userId);
 
-		return cart;
+		return cartDto;
 	}
 
 	@GetMapping("addToCart")
-	public Cart addToCart(@RequestParam long userId, @RequestParam long productId) {
+	public CartDTO addToCart(@RequestParam long userId, @RequestParam long productId) {
 
-		Cart cart = cartService.addToCart(userId, productId);
+		CartDTO cartDto = cartService.addToCart(userId, productId);
 
-		return cart;
+		return cartDto;
 	}
 }

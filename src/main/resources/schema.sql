@@ -4,13 +4,6 @@ CREATE TABLE IF NOT EXISTS userinfo (
     phone varchar(15) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS product (
-    id   LONG      NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name varchar(128) NOT NULL,
-    brand varchar(128) NOT NULL,
-    price INTEGER NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS inventory (
     id   LONG      NOT NULL PRIMARY KEY AUTO_INCREMENT,
     product_id LONG NOT NULL,
@@ -19,8 +12,15 @@ CREATE TABLE IF NOT EXISTS inventory (
 
 CREATE TABLE IF NOT EXISTS cart (
     id   LONG      NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    product_id LONG NOT NULL,
     user_id LONG NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS product (
+    id   LONG      NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(128) NOT NULL,
+    brand varchar(128) NOT NULL,
+    price INTEGER NOT NULL,
+    cart_id LONG
 );
 
 CREATE SEQUENCE HIBERNATE_SEQUENCE START WITH 10 INCREMENT BY 1;
